@@ -1,0 +1,18 @@
+<div id="slide-header">
+  Most popular:
+</div>
+<div id="wrapper">
+  <div id="slide">
+    <div id="slide-image">
+      <img src="assets/{{currentSlide.pictureUrl}}.jpg"
+      [style.width.px]='1000' />
+    </div>
+    <a href="https://www.google.com" target="blank">
+      <div id="slide-text">{{currentSlide.title}}</div>
+    </a>
+  </div>
+      <span class="current-slide" *ngFor='let item of cubeIds'>
+        <span style="color: #ffd000; padding-left: 5px; padding-right: 5px;" *ngIf="item==counter-1; else elseBlock">&#9830;</span>
+        <ng-template #elseBlock><span style="padding-left: 5px; padding-right: 5px;" (click)='changeSlide(item)'>&#9830;</span></ng-template>
+        </span>
+</div>
