@@ -11,6 +11,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,15 @@ import { MainPageComponent } from './main-page/main-page.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
       { path: 'programme', component: ProgrammeComponent },
       { path: 'welcome', component: MainPageComponent },
       { path: 'about-us', component: AboutUsComponent},
       { path: 'login', component: LoginComponent},
-      { path: '**', redirectTo: '/welcome' }
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' }
+      // { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
     ])
   ],
   providers: [],
