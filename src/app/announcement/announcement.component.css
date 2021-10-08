@@ -1,0 +1,31 @@
+#container
+{
+  width: 1000px;
+  margin-top: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #645200;
+}
+
+#announcement-title
+{
+  padding: 10px;
+  font-size: 30px;
+}
+
+#announcement-content
+{
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: -.03em;
+  margin-bottom: 10px;
+  width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#announcement-plain-title
+{
+  border-bottom: 1px solid #645200;
+}
