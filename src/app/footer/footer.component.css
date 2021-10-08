@@ -1,0 +1,14 @@
+#container
+{
+  margin-top: 80px;
+  border-top: 1px solid #000000;
+}
+
+#footer-content
+{
+  text-align: center;
+  margin-top: 5px;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 18px;
+  color: #727272;
+}
