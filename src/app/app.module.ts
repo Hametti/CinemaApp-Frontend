@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutUsComponent,
     FooterComponent,
     AnnouncementComponent,
-    MainPageComponent
+    MainPageComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'welcome', component: MainPageComponent },
       { path: 'about-us', component: AboutUsComponent},
       { path: 'login', component: LoginComponent},
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' }
-      // { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
+      { path: 'movie/:id', component: MovieDetailComponent},
+      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
     ])
   ],
   providers: [],

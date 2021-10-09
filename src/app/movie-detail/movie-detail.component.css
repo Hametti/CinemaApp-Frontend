@@ -1,0 +1,223 @@
+#container
+{
+  width: 100%;
+  text-align: center;
+  background-color: #000000;
+  padding: 30px;
+  position: relative;
+}
+
+#back-button
+{
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+#title
+{
+  font-size: 44px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#movie-description
+{
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+#tickets-link
+{
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+#tickets-text
+{
+  border-bottom: 1px solid #dbaa09;
+}
+
+#tickets-text:hover
+{
+  cursor: pointer;
+  border-bottom: 1px solid #a30a0a;
+  transition: border-bottom 0.3s linear;
+}
+
+#picture
+{
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+#movie-details-wrapper
+{
+  margin-top: 40px;
+  background-color: #1f1e1e;
+
+}
+
+#movie-details
+{
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#left-side
+{
+
+  margin-top: 20px;
+  float: left;
+  width: 800px;
+}
+
+#director
+{
+  border-top: 1px solid #4b4b4b;
+}
+
+#director-title
+{
+  margin-top: 20px;
+  color: #bbbbbb;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+#director-details
+{
+  color: #ebebeb;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#cast
+{
+  border-top: 1px solid #4b4b4b;
+}
+
+#cast-title
+{
+  margin-top: 20px;
+  color: #bbbbbb;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+#cast-details
+{
+  color: #ebebeb;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#description
+{
+  border-top: 1px solid #4b4b4b;
+}
+
+#description-title
+{
+  margin-top: 20px;
+  color: #bbbbbb;
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+#description-details
+{
+  color: #ebebeb;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#right-side
+{
+  float: left;
+  width: 320px;
+  padding: 30px;
+  background-color: #252525;
+  margin-top: 20px;
+  margin-left: 60px;
+  text-align: center;
+}
+
+#release-year
+{
+  border-bottom: 1px solid #4b4b4b;
+}
+
+#release-year-title
+{
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  color: #bbbbbb;
+}
+
+#release-year-details
+{
+  font-size: 20px;
+  margin-bottom: 17px;
+}
+
+#movie-language
+{
+  margin-top: 20px;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+#movie-language-title
+{
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  color: #bbbbbb;
+}
+
+#movie-language-details
+{
+  font-size: 20px;
+  margin-bottom: 17px;
+}
+
+#movie-duration
+{
+  margin-top: 20px;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+#movie-duration-title
+{
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  color: #bbbbbb;
+}
+
+#movie-duration-details
+{
+  font-size: 20px;
+  margin-bottom: 17px;
+}
+
+#movie-budget
+{
+  margin-top: 20px;
+}
+
+#movie-budget-title
+{
+  font-size: 20px;
+  font-family:'Courier New', Courier, monospace;
+  color: #bbbbbb;
+}
+
+#movie-budget-details
+{
+  font-size: 20px;
+}
