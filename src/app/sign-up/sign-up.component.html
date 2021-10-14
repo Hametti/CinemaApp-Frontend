@@ -1,0 +1,44 @@
+<div id="container">
+  <div id="welcome-box">
+    <span id="welcome-title">
+      <h4 style="text-align: left;">Create a Modern-Cinema account</h4>
+      <h6 style="text-align: justify;">Book your tickets online, get notified by every incoming movie, and receive discounts</h6>
+      <br />
+    </span>
+    <span id="welcome-content">
+
+    </span>
+  </div>
+  <div class="formBox">
+    <span class='inputDescription'>Email address</span>
+    <div class="inputBox">
+      <input id="email-input" type='text' placeholder="email">
+    </div>
+  </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Confirm your email</span>
+    <div class="inputBox">
+      <input id="confirm-email-input" type='text' placeholder="email">
+    </div>
+  </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Name</span>
+    <div class="inputBox">
+      <input id="name-input" type='text' placeholder="name">
+    </div>
+  </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Password</span>
+    <div class="inputBox">
+      <input id="password-input" type='password' placeholder="password">
+    </div>
+  </div>
+  <div id="buttons">
+    <button type="button" (click)="signUpClick()">Sign up</button>
+    <button type="button" [routerLink]="['/login']">Back</button>
+  </div>
+
+</div>

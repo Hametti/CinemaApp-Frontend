@@ -1,0 +1,79 @@
+#container
+{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.inputBox
+{
+  margin-bottom: 5px;
+}
+
+#forgottenPassword
+{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#forgottenPassword:hover
+{
+  cursor: pointer;
+  color: rgb(28, 70, 255);
+  text-decoration: underline;
+}
+
+#buttons
+{
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+button
+{
+  width: 95px;
+  border: 1px solid #ffd000;
+  border-radius: 5px;
+  background-color: #3f3f3f;
+  color: white;
+}
+
+button:first-child
+{
+  margin-right: 10px;
+}
+
+button:hover
+{
+  background-color: #4f4f4f;
+}
+
+input[type=text]
+{
+  background-color: #dddddd;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+input[type=password]
+{
+  background-color: #dddddd;
+  color: #666;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+input:focus
+{
+  background-color: #cccccc;
+}

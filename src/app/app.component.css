@@ -56,3 +56,14 @@
   border-right: 1px dashed #ffd000;
   padding: 0px 5px 0px 5px;
 }
+
+#wrapper
+{
+  position: relative;
+}
+#user-welcome
+{
+  position: absolute;
+  right: 20px;
+  top: 35%;
+}
