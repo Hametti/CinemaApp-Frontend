@@ -15,6 +15,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AnnouncementComponent,
     MainPageComponent,
     MovieDetailComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
       { path: 'login', component: LoginComponent },
       { path: 'movie/:id', component: MovieDetailComponent },
       { path: 'sign-up', component: SignUpComponent },
+      { path: 'user-panel', component: UserPanelComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
     ])

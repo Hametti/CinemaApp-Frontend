@@ -1,11 +1,13 @@
 import { HttpClient, HttpErrorResponse, JsonpClientBackend } from '@angular/common/http';
 import { Token } from '@angular/compiler/src/ml_parser/tokens';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { Observable } from 'rxjs';
 import { IFullName } from './IFullName';
 import { map } from 'rxjs/operators';
 import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UpdateService } from '../services/update/update.service';
 
 
 @Component({
@@ -15,12 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private http: HttpClient, private movieService: MovieService) { }
+  constructor( private http: HttpClient, private movieService: MovieService, private router: Router, private updateService: UpdateService) { }
 
   // notLoggedStatus: string = "not logged";
   // loggedStatus: string = "logged";
   myResponse!: string;
-  currentUsername!: string;
   incorrectUserCred!: string;
 
   signInClick(): void {
@@ -30,8 +31,16 @@ export class LoginComponent implements OnInit {
     this.movieService.authenticate(login, password).subscribe(
       {
         next: data => {
+          //clear error variable, so it won't generate and add received token to local storage
           this.incorrectUserCred = "";
           localStorage.setItem('authorizationToken', JSON.stringify(data));
+          this.emitUpdate();
+          this.router.navigate(['/user-panel']);
+
+          //decoding JWT token and adding username to localStorage
+          // let JWT = JSON.parse(localStorage.getItem('authorizationToken') || '{}')
+          // let decodedJWT = JSON.parse(window.atob(JWT.split('.')[1]));
+          // localStorage.setItem('username', JSON.stringify(decodedJWT.unique_name));
         },
         error: err => {
           //this code will execute if any error occur
@@ -94,6 +103,10 @@ export class LoginComponent implements OnInit {
           this.myResponse = "You're not logged in"
         }
       });
+  }
+
+  emitUpdate(): void {
+    this.updateService.sendUpdate();
   }
 
   ngOnInit(): void {

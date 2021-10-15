@@ -17,10 +17,13 @@
         <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
         <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/programme']">Programme</a></li>
         <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/about-us']">About us</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/login']">Login</a></li>
+        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/user-panel']" *ngIf='username'>My profile</a></li>
+        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/login']" *ngIf='!username'>Login</a></li>
+        <li><a class='nav-link' (click)="logout()" *ngIf='username' [routerLink]="['/welcome']">Logout</a></li>
+
       </ul>
-      <div id="user-welcome">
-        Welcome, user213
+      <div id="user-welcome" *ngIf='username'>
+        Welcome, {{username}}
       </div>
       <div style="clear: both;"></div>
     </div>

@@ -1,25 +1,16 @@
-import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpParams, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IFullName } from './login/IFullName';
 import { IMovie } from './slider/IMovie';
-import { map } from 'rxjs/operators';
-
-var authenticationHeader = {
-  headers: new HttpHeaders({
-    token: 'something'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MovieService {
-
-
   constructor( private http: HttpClient ) { }
 
+  //Code-review: Load it from backend server instead of storing it locally.
   private moviesUrl = "assets/movies.json";
 
   getToken(): string {
