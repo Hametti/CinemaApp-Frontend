@@ -1,33 +1,3 @@
-<div id="wrapper">
-  <nav class='navbar navbar-expand navbar-light'>
-    <div id="navbar-content" style="margin-left: auto; margin-right: auto;">
-      <div id="brand"
-      style="float: left; padding: 8px; margin-right: 20px;"
-      [routerLink]="['/welcome']">
-        <div id="text-logo" style="float: left;">
-          Modern
-          <br />
-          Cinema
-        </div>
-          <img src="assets/cinema-logo-circle.png"
-          [style.width.px]='imageWidth'
-          />
-        </div>
-      <ul class='nav nav-pills'>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/programme']">Programme</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/about-us']">About us</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/user-panel']" *ngIf='username'>My profile</a></li>
-        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/login']" *ngIf='!username'>Login</a></li>
-        <li><a class='nav-link' (click)="logout()" *ngIf='username' [routerLink]="['/welcome']">Logout</a></li>
-
-      </ul>
-      <div id="user-welcome" *ngIf='username'>
-        Welcome, {{username}}
-      </div>
-      <div style="clear: both;"></div>
-    </div>
-    </nav>
-    <router-outlet></router-outlet>
-    <footer></footer>
-</div>
+<app-navigation-panel></app-navigation-panel>
+<router-outlet></router-outlet>
+<footer></footer>

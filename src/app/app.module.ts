@@ -3,19 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SliderComponent } from './slider/slider.component';
-import { ProgrammeComponent } from './programme/programme.component';
-import { LoginComponent } from './login/login.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { FooterComponent } from './footer/footer.component';
-import { AnnouncementComponent } from './announcement/announcement.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { ProgrammeComponent } from './components/programme/programme.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './auth/token.interceptor';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { UserPanelComponent } from './user-panel/user-panel.component';
+import { UserPanelComponent } from './components/user-panel/user-panel.component';
+import { LoginComponent } from './components/login/login.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
     MainPageComponent,
     MovieDetailComponent,
     SignUpComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    NavigationPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +39,12 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
     AppRoutingModule,
     RouterModule.forRoot([
       { path: 'programme', component: ProgrammeComponent },
-      { path: 'welcome', component: MainPageComponent },
+      { path: 'main-page', component: MainPageComponent },
       { path: 'about-us', component: AboutUsComponent },
       { path: 'login', component: LoginComponent },
       { path: 'movie/:id', component: MovieDetailComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'user-panel', component: UserPanelComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
     ])
   ],

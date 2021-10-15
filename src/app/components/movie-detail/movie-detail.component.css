@@ -1,17 +1,18 @@
-#container
+#presentation-container
 {
-  width: 100%;
   text-align: center;
   background-color: #000000;
   padding: 30px;
   position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #back-button
 {
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 30px;
+  left: 30px;
 }
 
 #title
@@ -60,6 +61,8 @@
 {
   margin-top: 40px;
   background-color: #1f1e1e;
+  margin-left: 40px;
+  margin-right: 40px;
 
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../movie.service';
-import { IMovie } from './IMovie';
+import { IMovie } from 'src/app/interfaces/IMovie';
+import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
   selector: 'slider-component',

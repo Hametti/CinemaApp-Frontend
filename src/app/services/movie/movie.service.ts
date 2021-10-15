@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMovie } from './slider/IMovie';
+import { IMovie } from '../../interfaces/IMovie';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,7 @@ export class MovieService {
   //Code-review: Load it from backend server instead of storing it locally.
   private moviesUrl = "assets/movies.json";
 
-  getToken(): string {
-    return JSON.parse(localStorage.getItem('authorizationToken') || '{}');
-  }
+
 
   getUsername(token: string): Observable<string> {
     return this.http.get("http://localhost:11207/api/name/" + token, { responseType: 'text' })
