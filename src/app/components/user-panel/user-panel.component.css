@@ -11,3 +11,152 @@
   font-size: 18px;
   padding: 40px;
 }
+
+.pill
+{
+  float: left;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid #ffd000;
+  margin-left: 10px;
+}
+
+.pill:first-child
+{
+  margin-left: 0px;
+}
+
+.pill:hover
+{
+  cursor: pointer;
+  background-color: #333333;
+  transition: 0.2s linear;
+}
+
+#pills
+{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.panel
+{
+  width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+}
+
+.details
+{
+  text-align: left;
+}
+
+#button-box
+{
+  margin-top: 10px;
+}
+
+button
+{
+  width: 100px;
+  border: 1px solid #ffd000;
+  background-color: #111111;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover
+{
+  background-color: #333333;
+  transition: 0.2s linear;
+}
+
+.discount-title {
+  font-size: 24px;
+  border-bottom: 1px solid #ffd000;
+}
+
+.discount-movie
+{
+  border-bottom: 1px dashed #ffd000;
+  margin-bottom: 20px;
+}
+
+.discount-movie-title
+{
+  font-size: 40px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.discount-movie-title-text:hover
+{
+  cursor: pointer;
+  border-bottom: 1px solid red;
+  transition: 0.2s linear;
+}
+
+.discount-movie-picture
+{
+  font-size: 40px;
+  font-family:'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+}
+
+.discount-movie-picture:hover
+{
+  filter:brightness(0.7);
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.discount-movie-description
+{
+  font-size: 16px;
+  font-family:'Courier New', Courier, monospace;
+  text-align: justify;
+}
+
+#tickets-link
+{
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+#tickets-text
+{
+  border-bottom: 1px solid #dbaa09;
+}
+
+#tickets-text:hover
+{
+  cursor: pointer;
+  border-bottom: 1px solid #ff0000;
+  filter: brightness(90%);
+  transition: border-bottom 0.3s linear;
+}
+
+.reservation
+{
+  padding: 10px;
+  border-top: 1px solid #ffd000;
+  text-align: left;
+}
+
+.reservation:last-child
+{
+  border-bottom: 1px solid #ffd000;
+}
+
+.buttons
+{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}

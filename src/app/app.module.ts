@@ -45,7 +45,8 @@ import { NavigationPanelComponent } from './components/navigation-panel/navigati
       { path: 'movie/:id', component: MovieDetailComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'user-panel', component: UserPanelComponent },
-      { path: '**', redirectTo: 'welcome' , pathMatch: 'full' }
+      { path: '', redirectTo: 'main-page' , pathMatch: 'full' },
+      { path: '**', redirectTo: 'main-page' , pathMatch: 'full' }
     ])
   ],
   providers: [

@@ -1,5 +1,99 @@
 <div id="wrapper">
-  <div id="content">
-    Welcome, {{username}}. Your user panel will be here in the future.
+
+  <div id="pills">
+  <!--user reservations-->
+  <div class="pill" (click)="changeTab('reservations')">My reservations</div>
+
+  <!--user discounts(random)-->
+  <div class="pill" (click)="changeTab('discounts')">Discounts</div>
+
+  <!--Changing password, email, adding phone number, personal data-->
+  <div class="pill" (click)="changeTab('account-settings')">Account settings</div>
+  <div style="clear: both"></div>
   </div>
+
+  <div id="reservations-panel" *ngIf="currentTab=='reservations'">
+    <div class="panel">
+
+      <div class="reservation" *ngFor='let item of reservations'>
+        Title: {{item.movieTitle}}<br />
+        Date: {{item.date}}<br />
+        Hour: {{item.dateHour}}<br />
+        Seat(s): {{item.seats}}<br />
+        Row: {{item.row}}<br />
+        <div class="buttons">
+          <button type="button" (click)="deleteReservation(item)">Delete</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="discounts-panel" *ngIf="currentTab=='discounts'">
+    <div class="panel" style="width: 600px;">
+      <span class="discount-title">Your unique discount: -{{user.uniqueDiscountValue}}%</span>
+      <div class="discount-movie">
+
+        <div class="discount-movie-title" (click)='movieClicked(user.uniqueDiscount.movieId)'>
+          <span class="discount-movie-title-text">{{user.uniqueDiscount.title}}</span>
+        </div>
+
+        <div class="discount-movie-picture" (click)='movieClicked(user.uniqueDiscount.movieId)'>
+          <img src="assets/{{user.uniqueDiscount?.pictureUrl}}"
+          [style.width.px]='400'/>
+        </div>
+
+        <div class="discount-movie-description">
+          {{user.uniqueDiscount.shortDescription}}
+        </div>
+
+        <div id="tickets-link" (click)="bookTicketsClicked()">
+          <span id="tickets-text">Book tickets &#9658;</span>
+        </div>
+
+      </div>
+
+      <span class="discount-title">Our weekly discount: -{{weeklyDiscountValue}}%</span>
+      <div class="discount-movie">
+
+        <div class="discount-movie-title" (click)='movieClicked(weeklyDiscount.movieId)'>
+          <span class="discount-movie-title-text">{{weeklyDiscount.title}}</span>
+        </div>
+
+        <div class="discount-movie-picture" (click)='movieClicked(weeklyDiscount.movieId)'>
+          <img src="assets/{{weeklyDiscount?.pictureUrl}}"
+          [style.width.px]='400'/>
+        </div>
+
+        <div class="discount-movie-description">
+          {{weeklyDiscount.shortDescription}}
+        </div>
+
+        <div id="tickets-link" (click)="bookTicketsClicked()">
+          <span id="tickets-text">Book tickets &#9658;</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div id="account-settings-panel" *ngIf="currentTab=='account-settings'">
+    <div class="panel">
+      <div class="details">
+
+        Your name: {{user.name}} <br />
+        Your login: {{user.login}} <br />
+        Newsletter subscription:
+        <span *ngIf='user.subscription'>Subscribed</span>
+        <span *ngIf='!user.subscription'>Not subscribed</span> <br />
+
+        <div id="button-box">
+          <button type="button" (click)="editUserCred()">Edit</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </div>

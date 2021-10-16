@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IMovie } from 'src/app/interfaces/IMovie';
 import { MovieService } from 'src/app/services/movie/movie.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'movie-detail',
@@ -10,11 +11,15 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 })
 export class MovieDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private location: Location, private route: ActivatedRoute, private movieService: MovieService) { }
 
   pageTitle: string = `film o id: `;
   id!: number;
   movie!: IMovie;
+
+  backButtonClicked(): void {
+    this.location.back();
+  }
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
