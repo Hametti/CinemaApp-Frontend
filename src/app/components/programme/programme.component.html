@@ -1,10 +1,31 @@
 <div id="wrapper">
-  <div id="content">
-    There will be a programme component here in the future
-  </div>
+  <div class="daily-view-box-wrapper" *ngFor='let item of dailyViews'>
+    <div class="daily-view-date">{{item.date}}</div>
+    <div class="daily-view-box" >
+      <div class="daily-view-box-content" *ngFor='let movie of item.movieList'>
+        <div class="left-side">
+          <div class="picture" (click)="pictureClicked(movie.movieId)">
+            <img src="assets/{{movie.pictureUrl}}"
+            [style.width.px]='300' />
+          </div>
+        </div>
 
-  <div style="text-align: center;">
-    <button type="button" style="text-align: center; width: 200px;" (click)="headerRequestTest()">Test</button>
+        <div class="right-side">
+          <div class="title">
+            {{movie.title}}
+          </div>
+
+          <div class="showing-hours" *ngFor='let hour of movie.showingHours'>
+            <div class="current-hour" (click)="hourClicked(hour)">
+              {{hour}}
+            </div>
+          </div>
+        </div>
+        <div style="clear: both;"></div>
+
+      </div>
+
+    </div>
   </div>
 
 </div>

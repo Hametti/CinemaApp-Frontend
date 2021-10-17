@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { MovieService } from 'src/app/services/movie/movie.service'
+import { Router } from '@angular/router';
+import { IDailyView } from 'src/app/interfaces/idaily-view';
+import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
   selector: 'app-programme',
@@ -10,23 +10,28 @@ import { MovieService } from 'src/app/services/movie/movie.service'
 })
 export class ProgrammeComponent implements OnInit {
 
-  constructor( private http: HttpClient, private movieService: MovieService ) { }
+  constructor( private movieService: MovieService, private router: Router ) { }
 
-  value: string = "";
+  dailyViews!: IDailyView[];
 
-  headerRequestTest(): void {
-    this.movieService.headerRequestTest().subscribe({
-      next: data => {
-        this.value = data;
-        console.log(this.value);
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+  pictureClicked(movieId: number)
+  {
+    this.router.navigate(['/movie/' + movieId]);
+  }
+
+  hourClicked(hour: string)
+  {
+    alert("This feature will be available after implementing backend service");
   }
 
   ngOnInit(): void {
+    this.movieService.getDailyViews().subscribe(
+      {
+        next: data =>
+        {
+          this.dailyViews = data;
+        }
+      });
   }
 
 }

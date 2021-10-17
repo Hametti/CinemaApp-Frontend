@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IDailyView } from 'src/app/interfaces/idaily-view';
 import { IReservation } from 'src/app/interfaces/IReservation';
 import { IMovie } from '../../interfaces/IMovie';
 
@@ -11,8 +12,6 @@ import { IMovie } from '../../interfaces/IMovie';
 export class MovieService {
   constructor( private http: HttpClient ) { }
 
-  //Code-review: Load it from backend server instead of storing it locally.
-  private moviesUrl = "assets/movies.json";
 
   headers: HttpHeaders = new HttpHeaders().append('content', 'test');
 
@@ -25,7 +24,7 @@ export class MovieService {
   }
 
   getMovies(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.moviesUrl);
+    return this.http.get<IMovie[]>("assets/movies.json");
   }
 
   authenticate(username: string, password: string): Observable<string> {
@@ -87,5 +86,9 @@ export class MovieService {
         "seats": [22, 23],
         "row": 8
        }];
+   }
+
+   getDailyViews(): Observable<IDailyView[]> {
+     return this.http.get<IDailyView[]>("assets/dailyView.json");
    }
 }
