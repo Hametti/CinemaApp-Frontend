@@ -1,0 +1,42 @@
+.panel
+{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+}
+
+.reservation
+{
+  padding: 10px;
+  border-top: 1px solid #ffd000;
+  text-align: left;
+}
+
+.reservation:last-child
+{
+  border-bottom: 1px solid #ffd000;
+}
+
+.buttons
+{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+button
+{
+  width: 100px;
+  border: 1px solid #ffd000;
+  background-color: #111111;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover
+{
+  background-color: #333333;
+  transition: 0.2s linear;
+}

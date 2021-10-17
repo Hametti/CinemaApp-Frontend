@@ -5,9 +5,32 @@
   margin-right: auto;
 }
 
-#content
+.panel
 {
-  font-size: 18px;
-  text-align: center;
-  padding: 40px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #232323;
+  border-radius: 10px;
+}
+
+.text-content
+{
+  font-size: 20px;
+  text-align: justify;
+}
+
+a
+{
+  text-decoration: none;
+  color: #dddddd;
+  border-bottom: 1px solid #ffdd00;
+}
+
+a:hover
+{
+  color: #b1b1b1;
+  border-bottom: 1px solid red;
+  transition: 0.2s linear;
 }

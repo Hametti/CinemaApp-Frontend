@@ -1,0 +1,12 @@
+<div class="panel">
+  <div class="reservation" *ngFor='let item of reservations'>
+    Title: {{item.movieTitle}}<br />
+    Date: {{item.date}}<br />
+    Hour: {{item.dateHour}}<br />
+    Seat(s): {{item.seats}}<br />
+    Row: {{item.row}}<br />
+    <div class="buttons">
+      <button type="button" (click)="deleteReservation(item)">Delete</button>
+    </div>
+  </div>
+</div>

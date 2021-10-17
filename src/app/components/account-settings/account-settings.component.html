@@ -1,0 +1,15 @@
+<div class="panel">
+  <div class="details">
+
+    Your name: {{user.name}} <br />
+    Your login: {{user.login}} <br />
+    Newsletter subscription:
+    <span *ngIf='user.subscription'>Subscribed</span>
+    <span *ngIf='!user.subscription'>Not subscribed</span> <br />
+
+    <div id="button-box">
+      <button type="button" (click)="editUserCred()">Edit</button>
+    </div>
+
+  </div>
+</div>

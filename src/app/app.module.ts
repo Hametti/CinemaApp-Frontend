@@ -17,6 +17,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
+import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
+import { DiscountsComponent } from './components/discounts/discounts.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { NavigationPanelComponent } from './components/navigation-panel/navigati
     MovieDetailComponent,
     SignUpComponent,
     UserPanelComponent,
-    NavigationPanelComponent
+    NavigationPanelComponent,
+    AccountSettingsComponent,
+    ReservationsComponent,
+    DiscountsComponent
   ],
   imports: [
     BrowserModule,
