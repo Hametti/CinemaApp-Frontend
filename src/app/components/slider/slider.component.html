@@ -7,7 +7,7 @@
       <img src="assets/{{movies[counter]?.pictureUrl}}"
       [style.width.px]='1000' />
     </div>
-      <div id="slide-text" [routerLink]="['/movie', movies[counter]?.movieId]">
+      <div id="slide-text" [routerLink]="['/movie', movies[counter]?.id]">
         {{movies[counter]?.title}}
       </div>
   </div>

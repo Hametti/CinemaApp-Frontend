@@ -1,104 +1,107 @@
-<div id="presentation-container">
-  <div id="quick-presentation">
-    <div id="title">
-        {{movie.title}}
+<div *ngIf='movie'>
+  <div id="presentation-container">
+    <div id="quick-presentation">
+      <div id="title">
+          {{movie.title}}
+      </div>
+      <br>
+      <div id="movie-description">
+        {{movie.shortDescription}}
+      </div>
+      <div id="tickets-link">
+        <span id="tickets-text">Book tickets &#9658;</span>
+      </div>
     </div>
-    <br>
-    <div id="movie-description">
-      {{movie.shortDescription}}
-    </div>
-    <div id="tickets-link">
-      <span id="tickets-text">Book tickets &#9658;</span>
+    <div id="back-button" >
+      <button class='btn btn-outline-secondary'
+              style='width: 80px'
+              (click)="backButtonClicked()">
+              &#11164; Back
+      </button>
     </div>
   </div>
-  <div id="back-button" >
-    <button class='btn btn-outline-secondary'
-            style='width: 80px'
-            (click)="backButtonClicked()">
-            &#11164; Back
-    </button>
-  </div>
+  
+    <div id="picture">
+      <img src="assets/{{movie.pictureUrl}}"
+      [style.width.px]='1000'
+      />
+    </div>
+  
+    <div id="movie-details-wrapper">
+      <div id="movie-details">
+  
+        <div id="left-side">
+          <div id="director">
+            <div id="director-title">
+              Director
+            </div>
+            <div id="director-details">
+              {{movie.director}}
+            </div>
+          </div>
+  
+          <div id="cast">
+            <div id="cast-title">
+              Cast
+            </div>
+            <div id="cast-details">
+              {{movie.cast}}
+            </div>
+          </div>
+  
+          <div id="description">
+            <div id="description-title">
+              Description
+            </div>
+            <div id="description-details">
+              {{movie.longDescription}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div id="right-side">
+          <div id="release-year">
+            <div id="release-year-title">
+              Release year:
+            </div>
+            <div id="release-year-details">
+              {{movie.releaseYear}}
+            </div>
+          </div>
+  
+          <div id="movie-language">
+            <div id="movie-language-title">
+              Language:
+            </div>
+            <div id="movie-language-details">
+              {{movie.language}}
+            </div>
+          </div>
+  
+          <div id="movie-duration">
+            <div id="movie-duration-title">
+              Duration:
+            </div>
+            <div id="movie-duration-details">
+              {{movie.duration}}
+            </div>
+          </div>
+  
+          <div id="movie-budget">
+            <div id="movie-budget-title">
+              Budget:
+            </div>
+            <div id="movie-budget-details">
+              {{movie.budget}}
+            </div>
+          </div>
+  
+        </div>
+        <div style="clear: both;"></div>
+  
+      </div>
+    </div>
+  
+  
 </div>
-
-  <div id="picture">
-    <img src="assets/{{movie.pictureUrl}}"
-    [style.width.px]='1000'
-    />
-  </div>
-
-  <div id="movie-details-wrapper">
-    <div id="movie-details">
-
-      <div id="left-side">
-        <div id="director">
-          <div id="director-title">
-            Director
-          </div>
-          <div id="director-details">
-            {{movie.director}}
-          </div>
-        </div>
-
-        <div id="cast">
-          <div id="cast-title">
-            Cast
-          </div>
-          <div id="cast-details">
-            {{movie.cast}}
-          </div>
-        </div>
-
-        <div id="description">
-          <div id="description-title">
-            Description
-          </div>
-          <div id="description-details">
-            {{movie.longDescription}}
-          </div>
-        </div>
-
-      </div>
-
-      <div id="right-side">
-        <div id="release-year">
-          <div id="release-year-title">
-            Release year:
-          </div>
-          <div id="release-year-details">
-            {{movie.releaseYear}}
-          </div>
-        </div>
-
-        <div id="movie-language">
-          <div id="movie-language-title">
-            Language:
-          </div>
-          <div id="movie-language-details">
-            {{movie.language}}
-          </div>
-        </div>
-
-        <div id="movie-duration">
-          <div id="movie-duration-title">
-            Duration:
-          </div>
-          <div id="movie-duration-details">
-            {{movie.duration}}
-          </div>
-        </div>
-
-        <div id="movie-budget">
-          <div id="movie-budget-title">
-            Budget:
-          </div>
-          <div id="movie-budget-details">
-            {{movie.budget}}
-          </div>
-        </div>
-
-      </div>
-      <div style="clear: both;"></div>
-
-    </div>
-  </div>
-

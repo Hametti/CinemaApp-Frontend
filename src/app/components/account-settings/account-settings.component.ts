@@ -12,7 +12,7 @@ export class AccountSettingsComponent implements OnInit {
 
   user: IUser = { login: "test1", name: "Jan", subscription: true,
    uniqueDiscount: {
-    "movieId": 2,
+    "id": 2,
     "title": "No Time To Die",
     "pictureUrl": "no-time-to-die.jpg",
     "shortDescription": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help.",

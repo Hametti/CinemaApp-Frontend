@@ -23,8 +23,8 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.movieService.getMovies().subscribe({
-      next: data => this.movie = data[this.id-1]
+    this.movieService.getMovies(this.id).subscribe({
+      next: data => this.movie = <any>data
     });
     this.pageTitle += `${this.id}`;
   }

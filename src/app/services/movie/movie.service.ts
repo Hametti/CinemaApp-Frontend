@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IDailyView } from 'src/app/interfaces/idaily-view';
 import { IReservation } from 'src/app/interfaces/IReservation';
+import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/iscreening-day-dto';
 import { IMovie } from '../../interfaces/IMovie';
 
 @Injectable({
@@ -23,15 +23,12 @@ export class MovieService {
     return this.http.get("http://localhost:11207/api/name/" + token, { responseType: 'text' })
   }
 
-  getMovies(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>("assets/movies.json");
+  getMovies(id: number): Observable<IMovie> {
+    return this.http.get<IMovie>("https://localhost:44380/api/movie/" + id);
   }
 
-  authenticate(username: string, password: string): Observable<string> {
-    return this.http.post("http://localhost:11207/api/name/authenticate"
-    ,{ Username: username, Password: password }
-    ,{ responseType: 'text' }
-    );
+  getAllMovies(): Observable<IMovie[]> {
+    return this.http.get<IMovie[]>("https://localhost:44380/api/movie/all");
   }
 
   getData() {
@@ -41,7 +38,7 @@ export class MovieService {
   //implement drawing a movie from backend server
   getRandomMovie(): IMovie {
     return {
-      "movieId": 2,
+      "id": 2,
       "title": "No Time To Die",
       "pictureUrl": "no-time-to-die.jpg",
       "shortDescription": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help.",
@@ -57,7 +54,7 @@ export class MovieService {
 
    getSecondRandomMovie(): IMovie {
     return {
-      "movieId": 3,
+      "id": 3,
       "title": "Green Mile",
       "pictureUrl": "green-mile.jpg",
       "shortDescription": "At a Louisiana assisted-living home in 1999, elderly retiree Paul Edgecomb becomes emotional while viewing the film Top Hat. His companion Elaine becomes concerned, and Paul explains to her that the film reminded him of events that he witnessed in 1935 when he was an officer at Cold Mountain Penitentiary's death row, nicknamed \"The Green Mile\".",
@@ -88,7 +85,7 @@ export class MovieService {
        }];
    }
 
-   getDailyViews(): Observable<IDailyView[]> {
-     return this.http.get<IDailyView[]>("assets/dailyView.json");
+   getScreeningDays(): Observable<IScreeningDayDTO[]> {
+     return this.http.get<IScreeningDayDTO[]>("https://localhost:44380/api/screeningday/all");
    }
 }
