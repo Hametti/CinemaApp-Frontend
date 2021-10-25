@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/iscreening-day-dto';
+import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/IScreening-day-dto';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class ProgrammeComponent implements OnInit {
 
   constructor( private movieService: MovieService, private router: Router ) { }
 
+  screeningDays!: IScreeningDayDTO[];
+
   pictureClicked(id: number)
   {
     this.router.navigate(['/movie/' + id]);
@@ -21,10 +23,6 @@ export class ProgrammeComponent implements OnInit {
   {
     alert("This feature will be available after implementing backend service");
   }
-
-  //----------------------------------------------------------------------------------
-
-  screeningDays!: IScreeningDayDTO[];
 
   ngOnInit(): void {
     this.movieService.getScreeningDays().subscribe(
@@ -36,6 +34,5 @@ export class ProgrammeComponent implements OnInit {
       }
     )
   }
-
-
+  
 }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IReservation } from 'src/app/interfaces/IReservation';
-import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/iscreening-day-dto';
+import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/IScreening-day-dto';
 import { IMovie } from '../../interfaces/IMovie';
 
 @Injectable({
@@ -15,15 +15,15 @@ export class MovieService {
 
   headers: HttpHeaders = new HttpHeaders().append('content', 'test');
 
-  headerRequestTest(): Observable<string> {
-    return this.http.get("http://localhost:11207/api/name/test", { headers: this.headers, responseType: 'text'});
-  }
+  // headerRequestTest(): Observable<string> {
+  //   return this.http.get("http://localhost:11207/api/name/test", { headers: this.headers, responseType: 'text'});
+  // }
 
-  getUsername(token: string): Observable<string> {
-    return this.http.get("http://localhost:11207/api/name/" + token, { responseType: 'text' })
-  }
+  // getUsername(token: string): Observable<string> {
+  //   return this.http.get("http://localhost:11207/api/name/" + token, { responseType: 'text' })
+  // }
 
-  getMovies(id: number): Observable<IMovie> {
+  getMovieById(id: number): Observable<IMovie> {
     return this.http.get<IMovie>("https://localhost:44380/api/movie/" + id);
   }
 
@@ -87,5 +87,9 @@ export class MovieService {
 
    getScreeningDays(): Observable<IScreeningDayDTO[]> {
      return this.http.get<IScreeningDayDTO[]>("https://localhost:44380/api/screeningday/all");
+   }
+
+   getSliderMovies(): Observable<IMovie[]> {
+     return this.http.get<IMovie[]>("https://localhost:44380/api/movie/five");
    }
 }

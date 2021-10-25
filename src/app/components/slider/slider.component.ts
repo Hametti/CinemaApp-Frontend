@@ -17,7 +17,7 @@ export class SliderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.movieService.getAllMovies().subscribe({
+    this.movieService.getSliderMovies().subscribe({
       next: data => this.movies = data
     });
     this.startTimer();

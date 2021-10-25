@@ -9,6 +9,14 @@
 
     </span>
   </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Name</span>
+    <div class="inputBox">
+      <input id="name-input" type='text' placeholder="name">
+    </div>
+  </div>
+
   <div class="formBox">
     <span class='inputDescription'>Email address</span>
     <div class="inputBox">
@@ -24,18 +32,35 @@
   </div>
 
   <div class="formBox">
-    <span class='inputDescription'>Name</span>
-    <div class="inputBox">
-      <input id="name-input" type='text' placeholder="name">
-    </div>
-  </div>
-
-  <div class="formBox">
     <span class='inputDescription'>Password</span>
     <div class="inputBox">
       <input id="password-input" type='password' placeholder="password">
     </div>
   </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Confirm password</span>
+    <div class="inputBox">
+      <input id="confirm-password-input" type='password' placeholder="password">
+    </div>
+  </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Security question</span>
+    <div class="inputBox">
+      <input id="security-question-input" type='text' placeholder="add your security question">
+    </div>
+  </div>
+
+  <div class="formBox">
+    <span class='inputDescription'>Security question answer</span>
+    <div class="inputBox">
+      <input id="security-question-answer-input" type='text' placeholder="add your answer to previous question">
+    </div>
+  </div>
+
+  <div id="errorMessage" *ngIf='respondMessage'>{{respondMessage}}</div>
+
   <div id="buttons">
     <button type="button" (click)="signUpClick()">Sign up</button>
     <button type="button" [routerLink]="['/login']">Back</button>

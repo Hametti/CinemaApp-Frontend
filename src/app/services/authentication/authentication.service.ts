@@ -10,7 +10,7 @@ export class AuthenticationService {
   constructor( private http: HttpClient ) { }
 
   authenticate(username: string, password: string): Observable<string> {
-    return this.http.post("http://localhost:11207/api/name/authenticate"
+    return this.http.post("https://localhost:44380/api/main/authenticate"
     ,{ Username: username, Password: password }
     ,{ responseType: 'text' }
     );
