@@ -31,6 +31,10 @@ export class MovieService {
     return this.http.get<IMovie[]>("https://localhost:44380/api/movie/all");
   }
 
+  getWeeklyDiscountMovie(): Observable<IMovie> {
+    return this.http.get<IMovie>("https://localhost:44380/api/movie/weeklydiscountmovie");
+  }
+
   getData() {
     return this.http.get("http://localhost:11207/api/name", { responseType: 'text' });
   }

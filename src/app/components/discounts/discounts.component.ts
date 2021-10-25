@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IDiscount } from 'src/app/interfaces/IDiscount';
 import { IMovie } from 'src/app/interfaces/IMovie';
-import { IUser } from 'src/app/interfaces/IUser';
+import { IUserDTO } from 'src/app/interfaces/IUserDTO';
 import { MovieService } from 'src/app/services/movie/movie.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'discounts',
@@ -11,25 +13,10 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 })
 export class DiscountsComponent implements OnInit {
 
-  constructor( private movieService: MovieService, private router: Router ) { }
+  constructor( private movieService: MovieService, private router: Router, private userService: UserService) { }
 
-  user: IUser = { login: "test1", name: "Jan", subscription: true,
-   uniqueDiscount: {
-    "id": 2,
-    "title": "No Time To Die",
-    "pictureUrl": "no-time-to-die.jpg",
-    "shortDescription": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help.",
-    "director": "Cary Joji Fukunaya",
-    "cast": "Rami Malek | Ben Whishaw | Ralph Fiennes | Lashana Lynch | Ana de Armas | Billy Magnussen | Daniel Craig | Jeffrey Wright | Lea Seydoux | Naomie Harris | Rory Kinnear | David Dencik | Dali Benssalah",
-    "longDescription": "In No Time To Die, Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
-    "releaseYear": "2021",
-    "language": "2021",
-    "duration": "2h 43m",
-    "budget": "$250-301 million"
-  }, uniqueDiscountValue: 50 };
-
-  weeklyDiscount!: IMovie;
-  weeklyDiscountValue: Number = 35;
+  userDiscount!: IDiscount;
+  weeklyDiscount!: IDiscount;
 
   movieClicked(id: number): void {
     this.router.navigate(['/movie/' + id]);
@@ -40,7 +27,13 @@ export class DiscountsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.weeklyDiscount = this.movieService.getSecondRandomMovie();
+    this.userService.getUserDiscount().subscribe(
+      data => this.userDiscount = <any>data
+    );
+
+    this.movieService.getWeeklyDiscountMovie().subscribe(
+      data => this.weeklyDiscount = <any>data
+    )
   }
 
 }

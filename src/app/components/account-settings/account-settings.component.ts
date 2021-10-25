@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/interfaces/IUser';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { IUserDTO } from 'src/app/interfaces/IUserDTO';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'account-settings',
@@ -8,28 +9,35 @@ import { IUser } from 'src/app/interfaces/IUser';
 })
 export class AccountSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor( private userService: UserService ) { }
 
-  user: IUser = { login: "test1", name: "Jan", subscription: true,
-   uniqueDiscount: {
-    "id": 2,
-    "title": "No Time To Die",
-    "pictureUrl": "no-time-to-die.jpg",
-    "shortDescription": "Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help.",
-    "director": "Cary Joji Fukunaya",
-    "cast": "Rami Malek | Ben Whishaw | Ralph Fiennes | Lashana Lynch | Ana de Armas | Billy Magnussen | Daniel Craig | Jeffrey Wright | Lea Seydoux | Naomie Harris | Rory Kinnear | David Dencik | Dali Benssalah",
-    "longDescription": "In No Time To Die, Bond has left active service and is enjoying a tranquil life in Jamaica. His peace is short-lived when his old friend Felix Leiter from the CIA turns up asking for help. The mission to rescue a kidnapped scientist turns out to be far more treacherous than expected, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.",
-    "releaseYear": "2021",
-    "language": "2021",
-    "duration": "2h 43m",
-    "budget": "$250-301 million"
-  }, uniqueDiscountValue: 50 };
+  user!: IUserDTO;
+  editMode: boolean = false;
+  @Output() changePasswordClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  editUserCred(): void {
-    alert("This function will be available after implementing backend server")
+  subscribeNewsletter(): void {
+    this.userService.subscribeNewsletter().subscribe(
+      data => this.ngOnInit()
+    );
   }
 
-  ngOnInit(): void {
+  unsubscribeNewsletter(): void {
+    this.userService.unsubscribeNewsletter().subscribe(
+      data => this.ngOnInit()
+    );
   }
 
+  changePassword(): void {
+    this.changePasswordClicked.emit(`change-password`);
+  }
+
+  deleteAccount(): void {
+    this.changePasswordClicked.emit(`delete-account`);
+  }
+
+  ngOnInit(): void {   
+    this.userService.getUserByToken().subscribe(
+      data => this.user = <any>data
+    );
+  }
 }

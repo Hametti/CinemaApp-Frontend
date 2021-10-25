@@ -20,6 +20,10 @@ import { NavigationPanelComponent } from './components/navigation-panel/navigati
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { DiscountsComponent } from './components/discounts/discounts.component';
+import { SessionGuard } from './guards/session.guard';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { DeleteAccountComponent } from './components/delete-account/delete-account.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { DiscountsComponent } from './components/discounts/discounts.component';
     NavigationPanelComponent,
     AccountSettingsComponent,
     ReservationsComponent,
-    DiscountsComponent
+    DiscountsComponent,
+    ChangePasswordComponent,
+    DeleteAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,9 @@ import { DiscountsComponent } from './components/discounts/discounts.component';
       { path: 'login', component: LoginComponent },
       { path: 'movie/:id', component: MovieDetailComponent },
       { path: 'sign-up', component: SignUpComponent },
-      { path: 'user-panel', component: UserPanelComponent },
+      { path: 'user-panel',
+        canActivate: [SessionGuard],
+        component: UserPanelComponent },
       { path: '', redirectTo: 'main-page' , pathMatch: 'full' },
       { path: '**', redirectTo: 'main-page' , pathMatch: 'full' }
     ])

@@ -9,13 +9,18 @@ export class UserPanelComponent implements OnInit {
 
   constructor() { }
 
-  currentTab: string = 'reservations'
+  currentTab: string = "";
 
   changeTab(tab: string): void {
     this.currentTab = tab;
   }
 
+  accountSettingsButtonClicked(value: string): void {
+    this.currentTab = value;
+  }
+
   ngOnInit(): void {
+    this.currentTab = 'account-settings';
   }
 
 }

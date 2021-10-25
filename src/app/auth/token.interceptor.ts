@@ -10,7 +10,8 @@ export class TokenInterceptor implements HttpInterceptor {
 
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem('authorizationToken') || '{}')}`
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('authorizationToken') || '{}')}`,
+        JwtToken: `${JSON.parse(localStorage.getItem('authorizationToken') || '{}')}`
       }
     });
     return next.handle(request);

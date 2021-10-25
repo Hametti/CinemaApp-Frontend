@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IUserDTO } from 'src/app/interfaces/IUserDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,24 @@ export class UserService {
   addUser(email: string, password: string, name: string, securityQuestion: string, securityQuestionAnswer: string): Observable<string> {
     return this.http.post("https://localhost:44380/api/user/add"
     ,{ Email: email, Password: password, Name: name, SecurityQuestion: securityQuestion, SecurityQuestionAnswer: securityQuestionAnswer }
-    ,{ responseType: 'text' }
-    );
+    ,{ responseType: 'text' });
+  }
+
+
+  getUserByToken(): Observable<JSON> {
+    return this.http.get<JSON>("https://localhost:44380/api/user/getUserByToken");
+  }
+
+  getUserDiscount(): Observable<JSON> {
+    return this.http.get<JSON>("https://localhost:44380/api/user/getUserDiscount");
+  }
+
+  subscribeNewsletter(): Observable<string> {
+    return this.http.get("https://localhost:44380/api/user/subscribeNewsletter", { responseType: 'text' });
+  }
+
+  unsubscribeNewsletter(): Observable<string> {
+    return this.http.get("https://localhost:44380/api/user/unsubscribeNewsletter", { responseType: 'text' });
   }
 
 }

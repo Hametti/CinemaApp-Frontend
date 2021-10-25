@@ -16,7 +16,15 @@
   </div>
 
   <div id="account-settings-panel" *ngIf="currentTab=='account-settings'">
-    <account-settings></account-settings>
+    <account-settings (changePasswordClicked)='accountSettingsButtonClicked($event)'></account-settings>
+  </div>
+
+  <div id="change-password-panel" *ngIf="currentTab=='change-password'">
+    <change-password></change-password>
+  </div>
+
+  <div id="delete-account-panel" *ngIf="currentTab=='delete-account'">
+    <delete-account></delete-account>
   </div>
 
 </div>

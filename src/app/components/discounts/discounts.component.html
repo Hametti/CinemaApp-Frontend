@@ -1,19 +1,19 @@
 <div id="discounts-panel">
-  <div class="panel">
-    <span class="discount-title">Your unique discount: -{{user.uniqueDiscountValue}}%</span>
+  <div class="panel" *ngIf='weeklyDiscount && userDiscount'>
+    <span class="discount-title">Your unique discount: -{{userDiscount.discountValue}}%</span>
     <div class="discount-movie">
 
-      <div class="discount-movie-title" (click)='movieClicked(user.uniqueDiscount.id)'>
-        <span class="discount-movie-title-text">{{user.uniqueDiscount.title}}</span>
+      <div class="discount-movie-title" (click)='movieClicked(userDiscount.discountMovie.id)'>
+        <span class="discount-movie-title-text">{{userDiscount.discountMovie.title}}</span>
       </div>
 
-      <div class="discount-movie-picture" (click)='movieClicked(user.uniqueDiscount.id)'>
-        <img src="assets/{{user.uniqueDiscount?.pictureUrl}}"
+      <div class="discount-movie-picture" (click)='movieClicked(userDiscount.discountMovie.id)'>
+        <img src="assets/{{userDiscount.discountMovie?.pictureUrl}}"
         [style.width.px]='400'/>
       </div>
 
       <div class="discount-movie-description">
-        {{user.uniqueDiscount.shortDescription}}
+        {{userDiscount.discountMovie.shortDescription}}
       </div>
 
       <div id="tickets-link" (click)="bookTicketsClicked()">
@@ -22,20 +22,20 @@
 
     </div>
 
-    <span class="discount-title">Our weekly discount: -{{weeklyDiscountValue}}%</span>
+    <span class="discount-title">Our weekly discount: -{{weeklyDiscount.discountValue}}%</span>
     <div class="discount-movie">
 
-      <div class="discount-movie-title" (click)='movieClicked(weeklyDiscount.id)'>
-        <span class="discount-movie-title-text">{{weeklyDiscount.title}}</span>
+      <div class="discount-movie-title" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
+        <span class="discount-movie-title-text">{{weeklyDiscount.discountMovie.title}}</span>
       </div>
 
-      <div class="discount-movie-picture" (click)='movieClicked(weeklyDiscount.id)'>
-        <img src="assets/{{weeklyDiscount?.pictureUrl}}"
+      <div class="discount-movie-picture" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
+        <img src="assets/{{weeklyDiscount.discountMovie.pictureUrl}}"
         [style.width.px]='400'/>
       </div>
 
       <div class="discount-movie-description">
-        {{weeklyDiscount.shortDescription}}
+        {{weeklyDiscount.discountMovie.shortDescription}}
       </div>
 
       <div id="tickets-link" (click)="bookTicketsClicked()">

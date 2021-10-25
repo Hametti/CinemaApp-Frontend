@@ -1,15 +1,15 @@
 <div class="panel">
-  <div class="details">
-
-    Your name: {{user.name}} <br />
-    Your login: {{user.login}} <br />
+  <div class="details" *ngIf='user && !editMode'>
+    Your login: {{user.name}} <br />
     Newsletter subscription:
     <span *ngIf='user.subscription'>Subscribed</span>
     <span *ngIf='!user.subscription'>Not subscribed</span> <br />
 
     <div id="button-box">
-      <button type="button" (click)="editUserCred()">Edit</button>
+      <button type="button" (click)="subscribeNewsletter()" *ngIf='!user.subscription'>Subscribe newsletter</button>
+      <button type="button" (click)="unsubscribeNewsletter()" *ngIf='user.subscription'>Unsubscribe newsletter</button>
+      <button type="button" (click)="changePassword()">Change password</button>
+      <button type="button" (click)="deleteAccount()">Delete Account</button>
     </div>
-
   </div>
 </div>
