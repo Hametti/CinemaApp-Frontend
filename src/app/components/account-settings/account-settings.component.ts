@@ -35,7 +35,7 @@ export class AccountSettingsComponent implements OnInit {
     this.changePasswordClicked.emit(`delete-account`);
   }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.userService.getUserByToken().subscribe(
       data => this.user = <any>data
     );

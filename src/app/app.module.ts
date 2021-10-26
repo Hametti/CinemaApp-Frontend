@@ -23,6 +23,9 @@ import { DiscountsComponent } from './components/discounts/discounts.component';
 import { SessionGuard } from './guards/session.guard';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { DeleteAccountComponent } from './components/delete-account/delete-account.component';
+import { PasswordChangedMessageComponent } from './components/password-changed-message/password-changed-message.component';
+import { NotLoggedGuard } from './guards/not-logged.guard';
+import { AccountDeletedMessageComponent } from './components/account-deleted-message/account-deleted-message.component';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { DeleteAccountComponent } from './components/delete-account/delete-accou
     ReservationsComponent,
     DiscountsComponent,
     ChangePasswordComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    PasswordChangedMessageComponent,
+    AccountDeletedMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,12 @@ import { DeleteAccountComponent } from './components/delete-account/delete-accou
       { path: 'user-panel',
         canActivate: [SessionGuard],
         component: UserPanelComponent },
+      { path: 'password-changed-message', 
+        canActivate: [NotLoggedGuard],
+        component: PasswordChangedMessageComponent },
+      { path: 'account-deleted-message', 
+        canActivate: [NotLoggedGuard],
+        component: AccountDeletedMessageComponent },
       { path: '', redirectTo: 'main-page' , pathMatch: 'full' },
       { path: '**', redirectTo: 'main-page' , pathMatch: 'full' }
     ])

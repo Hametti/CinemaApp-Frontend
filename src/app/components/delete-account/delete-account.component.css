@@ -1,0 +1,72 @@
+#container
+{
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  text-align: center;
+  background-color: #202020;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+}
+
+#welcome-box
+{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formBox
+{
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+input
+{
+  width: 400px;
+}
+
+#buttons
+{
+  margin-top: 20px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+button
+{
+  min-width: 100px;
+  border: 1px solid #ffd000;
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  padding: 5px 15px 5px 15px;
+  transition: 0.3s linear;
+}
+
+button:first-child
+{
+  margin-right: 10px;
+}
+
+button:hover
+{
+  background-color: #3b3b3b;
+}
+
+#error-message
+{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}

@@ -1,1 +1,31 @@
-<p>delete-account works!</p>
+<div id="container">
+    <div id="welcome-box">
+      <span id="welcome-title">
+        <h4 style="text-align: left;">Delete account</h4>
+        <h6 style="text-align: left;">
+            You'll lose all your reservations and discounts.<br/>
+            This operation can't be undone.<br/>
+            Are you sure? <br/>
+            If so, please type your password</h6>
+      </span>
+      <span id="welcome-content">
+  
+      </span>
+    </div>
+  
+    <div class="formBox">
+        <span class='inputDescription'>Current password</span>
+        <div class="inputBox">
+          <input id="current-password-input" type='password' placeholder="type your current password">
+        </div>
+      </div>
+  
+    <div id="error-message" *ngIf='respondMessage'>{{respondMessage}}</div>
+  
+    <div id="buttons">
+      <button type="button" (click)="deleteAccountClicked()">Delete account</button>
+      <button type="button" (click)="backButtonClicked()">Back</button>
+    </div>
+  
+  </div>
+  

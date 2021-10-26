@@ -2,13 +2,14 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUserDTO } from 'src/app/interfaces/IUserDTO';
+import { UpdateService } from '../update/update.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient, private updateService: UpdateService ) { }
 
   changePassword(currentPassword: string, newPassword: string): Observable<boolean> {
     return this.http.post<boolean>("https://localhost:44380/api/user/changepassword"
@@ -37,6 +38,17 @@ export class UserService {
 
   unsubscribeNewsletter(): Observable<string> {
     return this.http.get("https://localhost:44380/api/user/unsubscribeNewsletter", { responseType: 'text' });
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.updateService.sendUpdate();
+  }
+
+  deleteAccount(password: string): Observable<string> {
+    return this.http.post<string>("https://localhost:44380/api/user/deleteAccount"
+    ,{ password: password }
+    ,{ headers: new HttpHeaders().set('password', password)});
   }
 
 }

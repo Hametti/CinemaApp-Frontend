@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UpdateService } from 'src/app/services/update/update.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -9,7 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor( private updateService: UpdateService, private userService: UserService ) { }
+  constructor( private updateService: UpdateService, private userService: UserService, private router: Router ) { }
 
   respondMessage: string = "";
 
@@ -35,8 +37,8 @@ export class ChangePasswordComponent implements OnInit {
               this.respondMessage = "Your current password is incorrect";
             else
               {
-                this.respondMessage = "";
-                this.respondMessage = "Your password has been changed";
+                this.userService.logout();
+                this.router.navigate(["/password-changed-message"]);
               }
           },
           error: err => console.log(err.error)
