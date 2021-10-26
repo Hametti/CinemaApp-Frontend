@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UpdateService } from 'src/app/services/update/update.service';
 
 @Component({
   selector: 'user-panel',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor( private updateService: UpdateService ) { }
 
   currentTab: string = "";
 
@@ -21,6 +22,10 @@ export class UserPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentTab = 'account-settings';
+
+    this.updateService.getUpdate().subscribe({
+      next: data => this.ngOnInit()
+    });
   }
 
 }

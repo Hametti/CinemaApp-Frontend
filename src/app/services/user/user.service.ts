@@ -10,10 +10,16 @@ export class UserService {
 
   constructor( private http: HttpClient ) { }
 
+  changePassword(currentPassword: string, newPassword: string): Observable<boolean> {
+    return this.http.post<boolean>("https://localhost:44380/api/user/changepassword"
+    ,{currentPassword: currentPassword, newPassword: newPassword }
+    ,{ headers: new HttpHeaders().set('currentPassword', currentPassword).set('newPassword', newPassword)});
+  }
+
   addUser(email: string, password: string, name: string, securityQuestion: string, securityQuestionAnswer: string): Observable<string> {
     return this.http.post("https://localhost:44380/api/user/add"
     ,{ Email: email, Password: password, Name: name, SecurityQuestion: securityQuestion, SecurityQuestionAnswer: securityQuestionAnswer }
-    ,{ responseType: 'text' });
+    ,{ responseType: 'text'});
   }
 
 
