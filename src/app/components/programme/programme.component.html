@@ -1,31 +1,36 @@
-<div id="wrapper">
-  <div class="daily-view-box-wrapper" *ngFor='let screeningDay of screeningDays'>
-    <div class="daily-view-date">{{screeningDay.date}}</div>
-    <div class="daily-view-box" >
-      <div class="daily-view-box-content" *ngFor='let screening of screeningDay.screenings'>
-        <div class="left-side">
-          <div class="picture" (click)="pictureClicked(screening.movie.id)">
-            <img src="assets/{{screening.movie.pictureUrl}}"
-            [style.width.px]='300' />
-          </div>
-        </div>
-
-        <div class="right-side">
-          <div class="title">
-            {{screening.movie.title}}
-          </div>
-
-          <div class="showing-hours" *ngFor='let hourModel of screening.screeningHours'>
-            <div class="current-hour" (click)="hourClicked(hourModel.hour)">
-              {{hourModel.hour}}
-            </div>
-          </div>
-        </div>
-        <div style="clear: both;"></div>
-
+<div id="panel">
+  <div class="screening-days" *ngFor='let screeningDay of screeningDays'>
+      
+      <div class="screening-day-date">
+          {{screeningDay.date}}
       </div>
 
-    </div>
-  </div>
+      <div class="screenings" >
+        <div class="screening" *ngFor='let screening of screeningDay.screenings'>
+          
+          <div class="screening-left-side">
+            <div class="picture" (click)="pictureClicked(screening.movie.id)">
+              <img src="assets/{{screening.movie.pictureUrl}}"
+              [style.width.px]='300' />
+            </div>
+          </div>
+  
+          <div class="screening-right-side">
 
+            <div class="title">
+              {{screening.movie.title}}
+            </div>
+  
+            <div class="showing-hour" *ngFor='let hourModel of screening.screeningHours' (click)="hourClicked(hourModel.hour)">   
+                {{hourModel.hour}}
+            </div>
+
+          </div>
+
+          <div style="clear: both;"></div>
+  
+        </div>
+      </div>
+    </div>
 </div>
+

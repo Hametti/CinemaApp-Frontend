@@ -26,6 +26,8 @@ import { DeleteAccountComponent } from './components/delete-account/delete-accou
 import { PasswordChangedMessageComponent } from './components/password-changed-message/password-changed-message.component';
 import { NotLoggedGuard } from './guards/not-logged.guard';
 import { AccountDeletedMessageComponent } from './components/account-deleted-message/account-deleted-message.component';
+import { NewReservationComponent } from './components/new-reservation/new-reservation.component';
+import { ScreeningDaysComponent } from './components/screening-days/screening-days.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { AccountDeletedMessageComponent } from './components/account-deleted-mes
     ChangePasswordComponent,
     DeleteAccountComponent,
     PasswordChangedMessageComponent,
-    AccountDeletedMessageComponent
+    AccountDeletedMessageComponent,
+    NewReservationComponent,
+    ScreeningDaysComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,9 @@ import { AccountDeletedMessageComponent } from './components/account-deleted-mes
       { path: 'account-deleted-message', 
         canActivate: [NotLoggedGuard],
         component: AccountDeletedMessageComponent },
+      { path: 'new-reservation',
+        canActivate: [SessionGuard],
+        component: NewReservationComponent },
       { path: '', redirectTo: 'main-page' , pathMatch: 'full' },
       { path: '**', redirectTo: 'main-page' , pathMatch: 'full' }
     ])

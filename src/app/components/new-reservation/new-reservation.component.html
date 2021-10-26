@@ -1,0 +1,10 @@
+<div id="panel">
+    <div class="buttons">
+        <button type="button" (click)='cancelReservation()'>Cancel reservation</button>
+    </div>
+    <div *ngIf='currentTab=="screening-days"'>
+        <screening-days
+        (reservationData)='screeningDataArrived($event)'></screening-days>
+    </div>
+  </div>
+

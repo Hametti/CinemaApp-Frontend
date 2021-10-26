@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/IScreening-day-dto';
+import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProgrammeComponent implements OnInit {
 
   constructor( private movieService: MovieService, private router: Router ) { }
 
-  screeningDays!: IScreeningDayDTO[];
+  screeningDays!: IScreeningDay[];
 
   pictureClicked(id: number)
   {
@@ -26,12 +26,7 @@ export class ProgrammeComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getScreeningDays().subscribe(
-      {
-        next: data =>
-        {
-          this.screeningDays = data;
-        }
-      }
+      data => this.screeningDays = data
     )
   }
   

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IReservation } from 'src/app/interfaces/IReservation';
-import { IScreeningDayDTO } from 'src/app/interfaces/screening-day-dto-models/IScreening-day-dto';
+import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
 import { IMovie } from '../../interfaces/IMovie';
 
 @Injectable({
@@ -72,25 +72,8 @@ export class MovieService {
     }
    }
 
-   getReservations(): IReservation[] {
-     return [{
-        "movieTitle": "No Time To Die",
-        "date": "25.10",
-        "dateHour": "12:30",
-        "seats": [11, 12, 13],
-        "row": 5
-       },
-       {
-        "movieTitle": "Inception",
-        "date": "27.10",
-        "dateHour": "19:00",
-        "seats": [22, 23],
-        "row": 8
-       }];
-   }
-
-   getScreeningDays(): Observable<IScreeningDayDTO[]> {
-     return this.http.get<IScreeningDayDTO[]>("https://localhost:44380/api/screeningday/all");
+   getScreeningDays(): Observable<IScreeningDay[]> {
+     return this.http.get<IScreeningDay[]>("https://localhost:44380/api/screeningday/all");
    }
 
    getSliderMovies(): Observable<IMovie[]> {

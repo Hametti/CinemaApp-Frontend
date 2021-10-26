@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UpdateService } from 'src/app/services/update/update.service';
 
 @Component({
@@ -21,8 +21,7 @@ export class UserPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentTab = 'account-settings';
-
+    this.currentTab = 'reservations';
     this.updateService.getUpdate().subscribe({
       next: data => this.ngOnInit()
     });

@@ -1,12 +1,11 @@
-#panel
+#container
 {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #272727;
-  padding: 20px 40px;
-  border-radius: 10px;
-  font-family:'Courier New', Courier, monospace;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#panel-title
+{
+    text-align: center;
 }
 
 .screening-days

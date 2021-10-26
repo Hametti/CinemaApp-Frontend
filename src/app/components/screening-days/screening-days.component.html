@@ -1,0 +1,36 @@
+<div id="container">
+  <div id="panel-title"><h3>Click on the movie to reserve it</h3></div>
+    <div class="screening-days" *ngFor='let screeningDay of screeningDays'>
+        
+        <div class="screening-day-date">
+            {{screeningDay.date}}
+        </div>
+
+        <div class="screenings" >
+          <div class="screening" *ngFor='let screening of screeningDay.screenings'>
+            
+            <div class="screening-left-side">
+              <div class="picture" (click)="pictureClicked(screening.movie.id)">
+                <img src="assets/{{screening.movie.pictureUrl}}"
+                [style.width.px]='300' />
+              </div>
+            </div>
+    
+            <div class="screening-right-side">
+
+              <div class="title">
+                {{screening.movie.title}}
+              </div>
+    
+              <div class="showing-hour" *ngFor='let hourModel of screening.screeningHours' (click)="hourClicked(screeningDay.id, screeningDay.date, screening, screening.id)">   
+                  {{hourModel.hour}}
+              </div>
+
+            </div>
+
+            <div style="clear: both;"></div>
+    
+          </div>
+        </div>
+      </div>
+</div>
