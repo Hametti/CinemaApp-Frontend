@@ -33,15 +33,10 @@ export class ChangePasswordComponent implements OnInit {
       this.userService.changePassword(password, newPassword).subscribe(
         {
           next: data => {
-            if(!data)
-              this.respondMessage = "Your current password is incorrect";
-            else
-              {
                 this.userService.logout();
                 this.router.navigate(["/password-changed-message"]);
-              }
           },
-          error: err => console.log(err.error)
+          error: err => this.respondMessage = "Your current password is incorrect"
         });
     }
   }

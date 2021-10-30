@@ -1,48 +1,54 @@
 <div id="discounts-panel">
-  <div class="panel" *ngIf='weeklyDiscount && userDiscount'>
-    <span class="discount-title">Your unique discount: -{{userDiscount.discountValue}}%</span>
-    <div class="discount-movie">
+  <div class="panel">
+    <div id="user-discount" *ngIf='userDiscount'>
+      <span class="discount-title">Your unique discount: -{{userDiscount.discountValue}}%</span>
+      <div class="discount-movie">
 
-      <div class="discount-movie-title" (click)='movieClicked(userDiscount.discountMovie.id)'>
-        <span class="discount-movie-title-text">{{userDiscount.discountMovie.title}}</span>
+        <div class="discount-movie-title" (click)='movieClicked(userDiscount.discountMovie.id)'>
+          <span class="discount-movie-title-text">{{userDiscount.discountMovie.title}}</span>
+        </div>
+
+        <div class="discount-movie-picture" (click)='movieClicked(userDiscount.discountMovie.id)'>
+          <img src="assets/{{userDiscount.discountMovie?.pictureUrl}}"
+          [style.width.px]='400'/>
+        </div>
+
+        <div class="discount-movie-description">
+          {{userDiscount.discountMovie.shortDescription}}
+        </div>
+
+        <div id="tickets-link" (click)="bookTicketsClicked()">
+          <span id="tickets-text">Book tickets &#9658;</span>
+        </div>
+
       </div>
-
-      <div class="discount-movie-picture" (click)='movieClicked(userDiscount.discountMovie.id)'>
-        <img src="assets/{{userDiscount.discountMovie?.pictureUrl}}"
-        [style.width.px]='400'/>
-      </div>
-
-      <div class="discount-movie-description">
-        {{userDiscount.discountMovie.shortDescription}}
-      </div>
-
-      <div id="tickets-link" (click)="bookTicketsClicked()">
-        <span id="tickets-text">Book tickets &#9658;</span>
-      </div>
-
     </div>
 
-    <span class="discount-title">Our weekly discount: -{{weeklyDiscount.discountValue}}%</span>
-    <div class="discount-movie">
+    <div id="weekly-discount" *ngIf='weeklyDiscount'>
+      <span class="discount-title">Our weekly discount: -{{weeklyDiscount.discountValue}}%</span>
+      <div class="discount-movie">
 
-      <div class="discount-movie-title" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
-        <span class="discount-movie-title-text">{{weeklyDiscount.discountMovie.title}}</span>
+        <div class="discount-movie-title" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
+          <span class="discount-movie-title-text">{{weeklyDiscount.discountMovie.title}}</span>
+        </div>
+
+        <div class="discount-movie-picture" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
+          <img src="assets/{{weeklyDiscount.discountMovie.pictureUrl}}"
+          [style.width.px]='400'/>
+        </div>
+
+        <div class="discount-movie-description">
+          {{weeklyDiscount.discountMovie.shortDescription}}
+        </div>
+
+        <div id="tickets-link" (click)="bookTicketsClicked()">
+          <span id="tickets-text">Book tickets &#9658;</span>
+        </div>
+
       </div>
-
-      <div class="discount-movie-picture" (click)='movieClicked(weeklyDiscount.discountMovie.id)'>
-        <img src="assets/{{weeklyDiscount.discountMovie.pictureUrl}}"
-        [style.width.px]='400'/>
-      </div>
-
-      <div class="discount-movie-description">
-        {{weeklyDiscount.discountMovie.shortDescription}}
-      </div>
-
-      <div id="tickets-link" (click)="bookTicketsClicked()">
-        <span id="tickets-text">Book tickets &#9658;</span>
-      </div>
-
     </div>
+
+    <div *ngIf='!weeklyDiscount && !userDiscount' >Currently you don't have any discounts. </div>
 
   </div>
 </div>

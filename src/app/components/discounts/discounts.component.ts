@@ -32,7 +32,7 @@ export class DiscountsComponent implements OnInit {
     );
 
     this.movieService.getWeeklyDiscountMovie().subscribe(
-      data => this.weeklyDiscount = <any>data
+      data => this.weeklyDiscount = <any>data 
     )
   }
 

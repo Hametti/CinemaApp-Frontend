@@ -11,7 +11,7 @@ export class AuthenticationService {
 
   authenticate(username: string, password: string): Observable<string> {
     return this.http.post("https://localhost:44380/api/main/authenticate"
-    ,{ Username: username, Password: password }
+    ,{ Email: username, Password: password }
     ,{ responseType: 'text' }
     );
   }
