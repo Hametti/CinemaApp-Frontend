@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IDiscount } from 'src/app/interfaces/IDiscount';
 import { IReservation } from 'src/app/interfaces/IReservation';
-import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
+import { IRow } from 'src/app/interfaces/IRow';
+import { IScreeningDay } from 'src/app/interfaces/IScreening-day';
+import { IScreeningInfo } from 'src/app/interfaces/IScreening-info';
 import { IMovie } from '../../interfaces/IMovie';
 
 @Injectable({
@@ -12,17 +14,6 @@ import { IMovie } from '../../interfaces/IMovie';
 
 export class MovieService {
   constructor( private http: HttpClient ) { }
-
-
-  headers: HttpHeaders = new HttpHeaders().append('content', 'test');
-
-  // headerRequestTest(): Observable<string> {
-  //   return this.http.get("http://localhost:11207/api/name/test", { headers: this.headers, responseType: 'text'});
-  // }
-
-  // getUsername(token: string): Observable<string> {
-  //   return this.http.get("http://localhost:11207/api/name/" + token, { responseType: 'text' })
-  // }
 
   getMovieById(id: number): Observable<IMovie> {
     return this.http.get<IMovie>("https://localhost:44380/api/movie/" + id);
@@ -33,11 +24,7 @@ export class MovieService {
   }
 
   getWeeklyDiscountMovie(): Observable<IDiscount> {
-    return this.http.get<IDiscount>("https://localhost:44380/api/movie/weeklydiscountmovie");
-  }
-
-  getData() {
-    return this.http.get("http://localhost:11207/api/name", { responseType: 'text' });
+    return this.http.get<IDiscount>("https://localhost:44380/api/movie/weeklydiscount");
   }
 
    getScreeningDays(): Observable<IScreeningDay[]> {
@@ -46,5 +33,29 @@ export class MovieService {
 
    getSliderMovies(): Observable<IMovie[]> {
      return this.http.get<IMovie[]>("https://localhost:44380/api/movie/five");
+   }
+
+   getSeatsByMovieId(id: number): Observable<IRow[]> {
+     return this.http.get<IRow[]>(`https://localhost:44380/api/screening/${id}/seats`);
+   }
+
+   getScreeningInfoById(id: number): Observable<IScreeningInfo> {
+     return this.http.get<IScreeningInfo>(`https://localhost:44380/api/screening/info/${id}`);
+   }
+
+   addReservation(seatIds: number[])
+   {
+      return this.http.post("https://localhost:44380/api/reservation/add", seatIds, { responseType: 'text' });
+   }
+
+   getReservations(): Observable<IReservation[]>
+   {
+      return this.http.get<IReservation[]>("https://localhost:44380/api/reservation/userReservations");
+   }
+
+   deleteReservation(id: number)
+   {
+    return this.http.delete<string>(`https://localhost:44380/api/reservation/delete/${id}`,
+    { headers: new HttpHeaders().set('id', JSON.stringify(id))});
    }
 }

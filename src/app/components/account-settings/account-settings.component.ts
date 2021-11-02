@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IUserDTO } from 'src/app/interfaces/IUserDTO';
+import { IUser } from 'src/app/interfaces/IUser';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class AccountSettingsComponent implements OnInit {
 
   constructor( private userService: UserService ) { }
 
-  user!: IUserDTO;
+  user!: IUser;
   editMode: boolean = false;
   @Output() changePasswordClicked: EventEmitter<string> = new EventEmitter<string>();
 

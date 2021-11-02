@@ -29,7 +29,7 @@ export class NavigationPanelComponent implements OnInit {
     else
     {
       let decodedJWT = JSON.parse(window.atob(JWT.split('.')[1]));
-      this.username = decodedJWT.unique_name;
+      this.username = decodedJWT.email;
     }
   }
 

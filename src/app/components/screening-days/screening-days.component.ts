@@ -1,7 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IAddReservationData } from 'src/app/interfaces/IAddReservationData';
-import { IScreening } from 'src/app/interfaces/screening-day-models/IScreening';
-import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
+import { IScreeningDay } from 'src/app/interfaces/IScreening-day';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
@@ -15,22 +13,15 @@ export class ScreeningDaysComponent implements OnInit {
 
   screeningDays!: IScreeningDay[];
 
-  @Output() reservationData: EventEmitter<IAddReservationData> =
-    new EventEmitter<IAddReservationData>()
+  @Output() reservationData: EventEmitter<number> =
+    new EventEmitter<number>()
 
   pictureClicked(id: number): void {
     
   }
 
-  hourClicked(screeningDayById: number, date: string, screening: IScreening, screeningId: number): void {
-    var res: IAddReservationData = {
-      screeningDayId: screeningDayById,
-      date: date,
-      screening: screening,
-      screeningId: screeningId
-    }
-
-    this.reservationData.emit(res);
+  hourClicked(screeningId: number): void {
+    this.reservationData.emit(screeningId);
   }
 
   ngOnInit(): void {

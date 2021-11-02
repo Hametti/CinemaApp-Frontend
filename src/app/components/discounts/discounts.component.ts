@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDiscount } from 'src/app/interfaces/IDiscount';
 import { IMovie } from 'src/app/interfaces/IMovie';
-import { IUserDTO } from 'src/app/interfaces/IUserDTO';
+import { IUser } from 'src/app/interfaces/IUser';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { UserService } from 'src/app/services/user/user.service';
 

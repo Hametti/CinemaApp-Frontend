@@ -1,10 +1,10 @@
-import { IScreening } from "./screening-day-models/IScreening";
-import { ISeat } from "./screening-models/ISeat";
+import { ISeat } from "./ISeat";
 
 export interface IReservation {
-  screeningDayId: number;
+  id: number;
   date: string;
-  screening: IScreening;
+  reservationHour: string;
   screeningId: number;
-  seats: ISeat[];
+  movieTitle: string;
+  reservedSeats: ISeat[];
   }

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAddReservationData } from 'src/app/interfaces/IAddReservationData';
-import { IScreening } from 'src/app/interfaces/screening-day-models/IScreening';
-import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
-import { ISeat } from 'src/app/interfaces/screening-models/ISeat';
+import { IScreeningDay } from 'src/app/interfaces/IScreening-day';
+import { ISeat } from 'src/app/interfaces/ISeat';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
@@ -16,10 +14,6 @@ export class NewReservationComponent implements OnInit {
   constructor( private movieService: MovieService, private router: Router ) { }
 
   screeningDays!: IScreeningDay[];
-
-  screeningDayId!: number;
-  date!: string;
-  screening!: IScreening;
   screeningId!: number;
   seats!: ISeat[];
 
@@ -33,13 +27,9 @@ export class NewReservationComponent implements OnInit {
 
   }
 
-  screeningDataArrived(screeningData: IAddReservationData): void {
-    this.screeningDayId = screeningData.screeningDayId;
-    this.date = screeningData.date;
-    this.screening = screeningData.screening;
-    this.screeningId = screeningData.screeningId;
-    //navigate to seats
-    alert("Reservation data added. Now choose seats.");
+  screeningDataArrived(screeningId: number): void {
+    this.screeningId = screeningId;
+    this.currentTab = 'reservation-seats';
   }
 
   ngOnInit(): void {

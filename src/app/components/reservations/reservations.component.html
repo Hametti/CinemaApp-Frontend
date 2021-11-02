@@ -1,14 +1,18 @@
 <div class="panel">
   <div id="new-reservation-button">
-    <button type="button" (click)='newReservationClicked()'>New reservation</button>
+    <button type="button" (click)='newReservationClicked()'>Add reservation</button>
   </div>
   <div class="reservations" *ngIf='reservations'>
-    <div class="reservation" *ngFor='let item of reservations'>
-      Date: {{item.date}}<br />
+    <div class="reservation" *ngFor='let reservation of reservations'>
+      Date: {{reservation.date}}, {{reservation.reservationHour}}<br />
+      Movie: {{reservation.movieTitle}}<br/>
+      Seats:
+      <div *ngFor='let seat of reservation.reservedSeats'>
+        Row: {{seat.row}}, Seat: {{seat.seatNumber}}
+      </div>
       <div class="buttons">
-        <button type="button" (click)="deleteReservation(item)">Delete</button>
+        <button type="button" (click)="deleteReservation(reservation.id)">Delete</button>
       </div>
     </div>
   </div>
-  
 </div>

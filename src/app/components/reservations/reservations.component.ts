@@ -18,12 +18,18 @@ export class ReservationsComponent implements OnInit {
     this.router.navigate(['/new-reservation'])
   }
 
-  deleteReservation(item: IReservation): void {
-    alert("This function will be available after implementing backend server")
+  deleteReservation(id: number): void {
+    this.movieService.deleteReservation(id).subscribe(
+      data => {
+        this.ngOnInit();
+      }
+    )
   }
 
   ngOnInit(): void {
-    //this.reservations = this.movieService.getReservations();
+    this.movieService.getReservations().subscribe(
+      data => this.reservations = data
+    );
   }
 
 }

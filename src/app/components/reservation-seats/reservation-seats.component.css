@@ -1,0 +1,130 @@
+#wrapper
+{
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.screening-info
+{
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#screen
+{
+    width: 720px;
+    background-color: orange;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+
+
+.row
+{
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.row:last-child
+{
+    padding-bottom: 5px;
+}
+
+.seat
+{
+    width: 40px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.seat:first-child
+{
+    margin-left: auto;
+}
+
+.seat:last-child
+{
+    margin-right: auto;
+}
+
+.seat-content
+{
+    width: 40px;
+    height: 40px;
+    background-color: #4e4e4e;
+}
+
+.seat-content:hover
+{
+    background-color: green;
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+
+.occupied-seat-content
+{
+    width: 40px;
+    height: 40px;
+    background-color: red;
+}
+
+.clicked-seat-content
+{
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+
+.clicked-seat-content:hover
+{
+    cursor: pointer;
+    filter: brightness(70%);
+    transition: 0.1s linear;
+}
+
+.seat-text
+{
+    padding-top: 25%;
+}
+
+.seat-info
+{
+    margin-top: 40px;
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttons
+{
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+button
+{
+  min-width: 100px;
+  border: 1px solid #ffd000;
+  background-color: #111111;
+  padding: 5px 10px 5px 10px;
+  color: white;
+  border-radius: 5px;
+}
+
+button:hover
+{
+  background-color: #333333;
+  transition: 0.2s linear;
+}

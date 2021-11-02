@@ -3,8 +3,16 @@
         <button type="button" (click)='cancelReservation()'>Cancel reservation</button>
     </div>
     <div *ngIf='currentTab=="screening-days"'>
+        <div style="text-align: center;"><h3>Choose a convenient hour</h3></div>
         <screening-days
-        (reservationData)='screeningDataArrived($event)'></screening-days>
+            (reservationData)='screeningDataArrived($event)'>
+        </screening-days>
+    </div>
+
+    <div *ngIf='currentTab=="reservation-seats"'>
+        <reservation-seats [screeningId]='screeningId'>
+
+        </reservation-seats>
     </div>
   </div>
 

@@ -35,6 +35,7 @@ export class NotLoggedGuard implements CanActivate {
         return true;
       }
 
+    this.router.navigate(['/user-panel']);
     return false;
   }
   

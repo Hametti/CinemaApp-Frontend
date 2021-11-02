@@ -28,6 +28,9 @@ import { NotLoggedGuard } from './guards/not-logged.guard';
 import { AccountDeletedMessageComponent } from './components/account-deleted-message/account-deleted-message.component';
 import { NewReservationComponent } from './components/new-reservation/new-reservation.component';
 import { ScreeningDaysComponent } from './components/screening-days/screening-days.component';
+import { AccountRegisteredMessageComponent } from './components/account-registered-message/account-registered-message.component';
+import { ReservationSeatsComponent } from './components/reservation-seats/reservation-seats.component';
+import { ReservationAddedMessageComponent } from './components/reservation-added-message/reservation-added-message.component';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { ScreeningDaysComponent } from './components/screening-days/screening-da
     PasswordChangedMessageComponent,
     AccountDeletedMessageComponent,
     NewReservationComponent,
-    ScreeningDaysComponent
+    ScreeningDaysComponent,
+    AccountRegisteredMessageComponent,
+    ReservationSeatsComponent,
+    ReservationAddedMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,9 @@ import { ScreeningDaysComponent } from './components/screening-days/screening-da
       { path: 'programme', component: ProgrammeComponent },
       { path: 'main-page', component: MainPageComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'login', component: LoginComponent },
+      { path: 'login', 
+      canActivate: [NotLoggedGuard],
+      component: LoginComponent },
       { path: 'movie/:id', component: MovieDetailComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'user-panel',
@@ -77,6 +85,12 @@ import { ScreeningDaysComponent } from './components/screening-days/screening-da
       { path: 'new-reservation',
         canActivate: [SessionGuard],
         component: NewReservationComponent },
+      { path: 'account-registered-message',
+        canActivate: [NotLoggedGuard],
+        component: AccountRegisteredMessageComponent},
+      { path: 'reservation-added-message',
+        canActivate: [SessionGuard],
+        component: ReservationAddedMessageComponent},
       { path: '', redirectTo: 'main-page' , pathMatch: 'full' },
       { path: '**', redirectTo: 'main-page' , pathMatch: 'full' }
     ])

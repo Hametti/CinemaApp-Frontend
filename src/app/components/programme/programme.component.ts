@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IScreeningDay } from 'src/app/interfaces/screening-day-models/IScreening-day';
+import { IScreeningDay } from 'src/app/interfaces/IScreening-day';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
 @Component({
@@ -19,9 +19,9 @@ export class ProgrammeComponent implements OnInit {
     this.router.navigate(['/movie/' + id]);
   }
 
-  hourClicked(hour: string)
+  hourClicked(screeningId: number)
   {
-    alert("This feature will be available after implementing backend service");
+    alert("This feature will be available after implementing backend service -> screeningId: " + screeningId);
   }
 
   ngOnInit(): void {

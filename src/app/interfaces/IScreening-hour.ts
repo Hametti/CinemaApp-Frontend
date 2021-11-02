@@ -1,4 +1,4 @@
 export interface IScreeningHour {
-    id: number;
+    screeningId: number;
     hour: string;
 }

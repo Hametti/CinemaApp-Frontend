@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserDTO } from 'src/app/interfaces/IUserDTO';
+import { IUser } from 'src/app/interfaces/IUser';
 import { UpdateService } from '../update/update.service';
 
 @Injectable({
@@ -33,11 +33,11 @@ export class UserService {
   }
 
   subscribeNewsletter(): Observable<string> {
-    return this.http.get("https://localhost:44380/api/user/subscribeNewsletter", { responseType: 'text' });
+    return this.http.post("https://localhost:44380/api/user/subscribeNewsletter", {} ,{ responseType: 'text' });
   }
 
   unsubscribeNewsletter(): Observable<string> {
-    return this.http.get("https://localhost:44380/api/user/unsubscribeNewsletter", { responseType: 'text' });
+    return this.http.post("https://localhost:44380/api/user/unsubscribeNewsletter", {}, { responseType: 'text' });
   }
 
   logout(): void {
@@ -46,8 +46,7 @@ export class UserService {
   }
 
   deleteAccount(password: string): Observable<string> {
-    return this.http.post<string>("https://localhost:44380/api/user/deleteAccount"
-    ,{ password: password }
+    return this.http.delete<string>("https://localhost:44380/api/user/deleteAccount"
     ,{ headers: new HttpHeaders().set('password', password)});
   }
 

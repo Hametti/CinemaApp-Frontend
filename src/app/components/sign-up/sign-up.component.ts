@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor( private userService: UserService ) { }
+  constructor( private userService: UserService, private router: Router ) { }
 
   respondMessage: string = "";
 
@@ -29,6 +30,7 @@ export class SignUpComponent implements OnInit {
       this.userService.addUser(email, password, name, securityQuestion, securityQuestionAnswer).subscribe(
         data => {
             this.respondMessage = data;
+            this.router.navigate(['/account-registered-message'])
         }
       );
     }
