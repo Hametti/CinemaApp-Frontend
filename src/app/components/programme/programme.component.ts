@@ -21,7 +21,11 @@ export class ProgrammeComponent implements OnInit {
 
   hourClicked(screeningId: number)
   {
-    alert("This feature will be available after implementing backend service -> screeningId: " + screeningId);
+    
+  }
+
+  bookTicketsClicked() {
+    this.router.navigate(['/new-reservation']);
   }
 
   ngOnInit(): void {

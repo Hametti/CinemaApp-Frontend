@@ -66,9 +66,23 @@
   margin-right: 10px;
 }
 
-.showing-hour:hover
+#tickets-link
 {
-  background-color: #4d4d4d;
-  transition: 0.2s linear;
+  width: 200px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tickets-text
+{
+  border-bottom: 1px solid #dbaa09;
+}
+
+#tickets-text:hover
+{
   cursor: pointer;
+  border-bottom: 1px solid #a30a0a;
+  transition: border-bottom 0.3s linear;
 }

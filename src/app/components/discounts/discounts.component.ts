@@ -23,7 +23,7 @@ export class DiscountsComponent implements OnInit {
   }
 
   bookTicketsClicked(): void {
-    alert("This function will be available after implementing backend server")
+    this.router.navigate(['/new-reservation']);
   }
 
   ngOnInit(): void {

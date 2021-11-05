@@ -16,7 +16,7 @@ export class SessionGuard implements CanActivate {
 
     if(token == "{}") {
       alert("You're not logged in");
-      this.router.navigate(['/main-page']);
+      this.router.navigate(['/login']);
       return false;
     }
 
@@ -31,10 +31,10 @@ export class SessionGuard implements CanActivate {
 
     if(Date.now() >= decodedToken.exp * 1000 || token == "")
       {
-        alert("Your session expired");
+        alert("You have to log in first");
         localStorage.clear();
         this.updateService.sendUpdate();
-        this.router.navigate(['/main-page']);
+        this.router.navigate(['/login']);
         return false;
       }
 
